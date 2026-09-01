@@ -1,42 +1,42 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-const int N = 1e3+10;
+#define ll long long
+const int N = 1010;
 
-int pf[N];
-int arr[N][N];
+ll arr[N][N], pre[N][N];
 
 int main()
 {
+
+
     int n;
-    cin>>n;
+    cin >> n;
+
     for(int i=1; i<=n; i++)
     {
-       for(int j=1; j<=n; j++)
-       {
+        for (int j=1; j<=n; j++)
+        {
             cin>>arr[i][j];
-       }
+        }
+    }
+
+    // Build 2D prefix sum
+    for (int i=1; i<=n; i++)
+    {
+        for(int j=1; j<=n; j++)
+        {
+            pre[i][j] = arr[i][j] + pre[i-1][j] + pre[i][j-1] - pre[i-1][j-1];
+        }
     }
 
     int t;
     cin>>t;
-    while(t--)
+    while (t--)
     {
-        int sum=0;
         int a,b,c,d;
         cin>>a>>b>>c>>d;
 
-        for(int i=a; i<=c; i++)
-        {
-            for(int j=b; j<=d; j++)
-            {
-                sum += arr[i][j];
-            }
-        }
+        ll sum = pre[c][d] - pre[a-1][d] - pre[c][b-1] + pre[a-1][b-1];
         cout<<sum<<endl;
     }
-
-
-
-
-
 }

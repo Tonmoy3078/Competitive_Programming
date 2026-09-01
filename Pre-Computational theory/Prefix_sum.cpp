@@ -4,6 +4,7 @@ const int N = 1e5+10;
 
 int pf[N];
 int a[N];
+
 int main()
 {
     int n;
