@@ -14,10 +14,13 @@ typedef vector<pii> vii;
 typedef vector<pll> vll;
 typedef double dl;
 
+
 #define endl '\n'
 #define PB push_back
 #define F first
 #define S second
+#define yes "YES\n"
+#define no "NO\n"
 #define all(a) (a).begin(),(a).end()
 #define rall(a) (a).rbegin(),(a).rend()
 #define sz(x) (int)x.size()
@@ -41,31 +44,50 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+void print(set<string>&s)
+{
+    for(auto u : s)
+    {
+        cout<<u<<" ";
+    }
+    cout<<endl;
 
+    for(auto it = s.begin(); it!=s.end(); it++)
+    {
+        cout<<*it<<" " ;
+    }
+}
 
- void print(map<int,string>m)
- {
-     cout<<m.size()<<endl;
-     for(auto u : m)
-     {
-          cout<<u.first<<" "<<u.second<<" ";
-          cout<<endl;
-     }
- }
 int main()
 {
     optimize();
 
-    map<int,string>m;
-    m[1] = "abc";
-    m[5] = "cdc";
-    m[3] = "acd";
-    m.insert({4,"afg"});
 
-    m.erase(3);///erase the value of 3;
+    unordered_set<string>s;
+    int n;
+    cin>>n;
+    for(int i=0; i<n; i++)
+    {
+        string S;
+        cin>>S;
+        s.insert(S);
+    }
 
-    auto it = m.find(7);///return an iterator
+    int q;
+    cin>>q;
 
+    while(q--)
+    {
+        string str;
+        cin>>str;
+        if(s.find(str)==s.end())
+        {
+           cout<<no;
+        }
 
-    print(m);
+        else
+        {
+            cout<<yes;
+        }
+    }
 }

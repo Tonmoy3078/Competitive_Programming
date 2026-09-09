@@ -59,4 +59,19 @@ int main()
        cout<<(*it)<<" ";
    }
    cout<<endl;
+
+   ///Range based:(copy of actual value)
+   for(int value : v)
+   {
+       cout<<value<<" ";
+   }
+   cout<<endl;
+
+   for(auto u : v)///auto : can identify dynamically the data type
+   {
+       cout<<u<<" ";
+   }
+   cout<<endl;
+
+
 }

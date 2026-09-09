@@ -42,30 +42,21 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
-
- void print(map<int,string>m)
- {
-     cout<<m.size()<<endl;
-     for(auto u : m)
-     {
-          cout<<u.first<<" "<<u.second<<" ";
-          cout<<endl;
-     }
- }
 int main()
 {
     optimize();
 
-    map<int,string>m;
-    m[1] = "abc";
-    m[5] = "cdc";
-    m[3] = "acd";
-    m.insert({4,"afg"});
+    multiset<string>s;
+    s.insert("abs");/// log(n);
+    s.insert("dac");
+    s.insert("bda");
+    s.insert("bda");
+    s.insert("bda");
+    s.insert("abc");
 
-    m.erase(3);///erase the value of 3;
-
-    auto it = m.find(7);///return an iterator
-
-
-    print(m);
+    for(auto u : s)
+    {
+        cout<<u<<endl;
+    }
+    cout<<endl;
 }
