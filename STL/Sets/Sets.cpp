@@ -66,7 +66,7 @@ int main()
     s.insert("bda");
     s.insert("abc");
 
-    s.find("abc");///return iterator;
+    s.find("abc");///return iterator; log(n);
     auto it = s.find("abs");
     cout<<*it<<endl;
 
@@ -75,7 +75,7 @@ int main()
     {
         cout<<s.erase(*it)<<" ";
     }*/
-    //s.erase("bda");
+    s.erase("bda");
 
     print(s);
 

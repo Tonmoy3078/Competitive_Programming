@@ -47,13 +47,18 @@ int main()
     optimize();
 
     multiset<string>s;
-    s.insert("abs");/// log(n);
+    s.insert("abs");/// O(log(n));
     s.insert("dac");
     s.insert("bda");
     s.insert("bda");
     s.insert("bda");
     s.insert("abc");
 
+    auto it = s.find("abc");
+    if(it!=s.end())
+    {
+        s.erase(it);///delete all the apperance of the it;
+    }
     for(auto u : s)
     {
         cout<<u<<endl;
