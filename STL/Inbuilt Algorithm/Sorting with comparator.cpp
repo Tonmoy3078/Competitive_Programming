@@ -36,32 +36,63 @@ const ll infLL = 9000000000000000000;
 #define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 
 #define dbg(args...) do {cerr << #args << " : "; faltu(args); } while(0)
-void faltu () {            cerr << endl;}
-template < typename T, typename ... hello>void faltu( T arg, const hello &... rest) {cerr << arg << ' ';faltu(rest...);}
+void faltu ()
+{
+    cerr << endl;
+}
+template < typename T, typename ... hello>void faltu( T arg, const hello &... rest)
+{
+    cerr << arg << ' ';
+    faltu(rest...);
+}
 
-ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
-ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+ll gcd ( ll a, ll b )
+{
+    return __gcd ( a, b );
+}
+ll lcm ( ll a, ll b )
+{
+    return a * ( b / gcd ( a, b ) );
+}
 
+
+bool cmp(pair<string,int>a,pair<string,int>b)
+{
+    if(a.second!=b.second)
+    {
+        return a.second>b.second;
+    }
+    return a.first<b.first;
+}
 int main()
 {
     optimize();
-    ///INTRO_SORT = Quick sort + Heep sort + Insertion sort;
-
 
     int n;
     cin>>n;
 
-    vector<int>v(n);
+
+    vector<pair<string,int>>v(n);
     for(int i=0; i<n; i++)
     {
-        cin>>v[i];
+        cin>>v[i].first>>v[i].second;
     }
 
-    sort(v.begin(),v.end());
+    sort(v.begin(),v.end(),cmp);
+
+    /*sort(v.begin(),v.end(),[](const auto a,const auto b)
+         {
+             if(a.second!=b.second)
+            {
+                return a.second>b.second;
+            }
+            return a.first<b.first;
+
+         });*/
 
     for(auto u : v)
     {
-        cout<<u<<" ";
+        cout<<u.first<<" "<<u.second<<endl;
     }
 
     return 0;
