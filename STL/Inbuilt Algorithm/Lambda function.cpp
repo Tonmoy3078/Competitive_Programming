@@ -42,12 +42,35 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+bool is_positive(int x)
+{
+    return x<0;
+}
+
 int main()
 {
     optimize();
 
+    ///Lambda function;
+    /*
     int a,b;
     cin>>a>>b;
     int sum = [](int x,int y){return x+y;}(a,b);
     cout<<sum<<endl;
+    */
+
+    ///all_of function
+    vector<int>v={22,7,5};
+    //cout<<all_of(v.begin(),v.end(),
+                 //[](int x){return x>0;});
+    ///OR
+    cout<<all_of(v.begin(),v.end(),is_positive)<<endl;
+
+
+    ///any_of function
+    cout<<any_of(v.begin(),v.end(),is_positive)<<endl;
+
+
+    ///None_of function
+    cout<<none_of(v.begin(),v.end(),is_positive)<<endl;
 }
