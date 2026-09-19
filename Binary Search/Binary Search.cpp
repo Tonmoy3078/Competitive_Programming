@@ -42,35 +42,60 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
-bool is_positive(int x)
-{
-    return x>0;
-}
-
 int main()
 {
+    /// Binary Search ,TC - nlogn;
     optimize();
 
-    ///Lambda function;
-    /*
-    int a,b;
-    cin>>a>>b;
-    int sum = [](int x,int y){return x+y;}(a,b);
-    cout<<sum<<endl;
-    */
+    int n;
+    cin>>n;
 
-    ///all_of function
-    vector<int>v={22,7,5};
-    //cout<<all_of(v.begin(),v.end(),
-                 //[](int x){return x>0;});
-    ///OR
-    cout<<all_of(v.begin(),v.end(),is_positive)<<endl;
+    /// Please input the sorted array or,
+    /// After taking input ,at first sort the array;
+
+    vector<int>v(n);
+    for(int i=0; i<n; i++)
+    {
+        cin>>v[i];
+    }
+
+    int target;
+    cin>>target;
+
+    int l=0,r=n-1;
+
+    int ans=-1;
+
+    while(l<=r)
+    {
+        int mid = l + (r-l)/2;
+
+        if(target>v[mid])
+        {
+            l = mid+1;
+        }
+
+        else if(target<v[mid])
+        {
+            r = mid-1;
+        }
+
+        else
+        {
+            ans = mid;
+            break;
+        }
+    }
 
 
-    ///any_of function
-    cout<<any_of(v.begin(),v.end(),is_positive)<<endl;
+    if(ans==-1)
+    {
+        cout<<"The element is not found"<<endl;
+    }
+    else
+    {
+        cout<<ans<<endl;
+    }
 
-
-    ///None_of function
-    cout<<none_of(v.begin(),v.end(),is_positive)<<endl;
+    return 0;
 }
