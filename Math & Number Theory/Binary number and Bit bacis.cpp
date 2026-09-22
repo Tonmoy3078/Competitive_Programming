@@ -46,5 +46,15 @@ int main()
 {
     optimize();
 
+    cout<<INT_MAX<<endl;
+    int a = (1LL<<31)-1;
+    cout<<a<<endl;
+
+    ///Signed int = Store both positive and negative number;
+    ///Unsigned int = Store positive number only ;
+
+    unsigned int b = (1LL<<32)-1;
+    cout<<b<<endl;
+
     return 0;
 }
