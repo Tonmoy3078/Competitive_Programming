@@ -41,10 +41,57 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-
+void printBinary(int num)
+{
+    for(int i=10; i>=0; i--)
+    {
+        cout<<((num>>i)&1);
+    }
+    cout<<endl;
+}
 int main()
 {
-    optimize();
+    printBinary(25);
+    int a=9;
+    int i=3;
+    if((a&(1<<i)) != 0)
+    {
+        cout<<"Set bit\n";
+    }
+    else
+    {
+        cout<<"Not set bit\n";
+    }
 
-    return 0;
+    ///bit set;
+    printBinary(a|(1<<i));
+
+
+    printBinary(~a);
+
+    ///bit unset;
+    printBinary(a&(~(1<<3)));
+
+
+    ///toggle
+    printBinary(a^(1<<2));///second bit toggle
+    printBinary(a^(1<<3));///third bit toggel
+
+
+    int ct=0;
+    int tk=25;
+    for(int i=31; i>=0; i--)
+    {
+         if((tk&(1<<i)) != 0)
+         {
+             ct++;
+         }
+    }
+    cout<<ct<<endl;
+
+
+
+    ///count set bit inbuilt funtion
+    cout<<__builtin_popcount(25)<<endl;///for integer number;
+    cout<<__builtin_popcountll(25)<<endl;///for long long number;
 }

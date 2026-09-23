@@ -41,10 +41,43 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-
+void printBinary(int num)
+{
+    for(int i=10; i>=0; i--)
+    {
+        cout<<((num>>i)&1);
+    }
+    cout<<endl;
+}
 int main()
 {
-    optimize();
+    //optimize();
 
-    return 0;
+
+    /*for(int i=0; i<8; i++)
+    {
+        printBinary(i);
+        if(i&1!=0)
+        {
+            cout<<"Odd\n";
+        }
+        else
+        {
+            cout<<"even\n";
+        }
+    }*/
+
+    int n = 5;
+
+    ///Modulo Trick
+    if(n&1)cout<<"odd"<<endl;
+    else cout<<"even"<<endl;
+
+
+    ///Modulo and Multiplicative tricks
+    ///n = 101;
+    cout<<(n>>1)<<endl;/// Divide by 2;,here 101 -> 10;
+    cout<<(n<<1)<<endl;/// Multiply by 2;,here 101 ->1010;
+
+
 }
