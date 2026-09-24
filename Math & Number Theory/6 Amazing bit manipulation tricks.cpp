@@ -69,6 +69,9 @@ int main()
 
     int n = 5;
 
+
+
+    ///Trick - 01
     ///Modulo Trick
     if(n&1)cout<<"odd"<<endl;
     else cout<<"even"<<endl;
@@ -79,5 +82,26 @@ int main()
     cout<<(n>>1)<<endl;/// Divide by 2;,here 101 -> 10;
     cout<<(n<<1)<<endl;/// Multiply by 2;,here 101 ->1010;
 
+
+    ///Trick - 02
+    ///upper_case to lower_case
+    for(char c = 'A'; c<='E'; c++)///5th not set
+    {
+        //cout<<c<<endl;
+        //printBinary(int(c));
+    }
+    for(char c = 'a'; c<='e'; c++)///5th bit set
+    {
+        //cout<<c<<endl;
+        //printBinary(int(c));
+    }
+
+    char A = 'A';
+    char a =   A|(1<<5);
+    cout<<a<<endl;
+
+    char d = 'd';
+    char D = d&(1<<5);
+    cout<<D<<endl;
 
 }
