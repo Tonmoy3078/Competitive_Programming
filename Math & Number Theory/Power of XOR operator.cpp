@@ -41,75 +41,19 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-void printBinary(int num)
-{
-    for(int i=10; i>=0; i--)
-    {
-        cout<<((num>>i)&1);
-    }
-    cout<<endl;
-}
+
 int main()
 {
-    //optimize();
+    optimize();
 
+    int a=4,b=6;
 
-    /*for(int i=0; i<8; i++)
-    {
-        printBinary(i);
-        if(i&1!=0)
-        {
-            cout<<"Odd\n";
-        }
-        else
-        {
-            cout<<"even\n";
-        }
-    }*/
+    ///swap a and b;
 
-    int n = 5;
+    a = a^b;
+    b = b^a;
 
+    cou<<a<<" "<<b<<endl;
 
-    /*
-    ///Trick - 01
-    ///Modulo Trick
-    if(n&1)cout<<"odd"<<endl;
-    else cout<<"even"<<endl;
-
-
-    ///Modulo and Multiplicative tricks
-    ///n = 101;
-    cout<<(n>>1)<<endl;/// Divide by 2;,here 101 -> 10;
-    cout<<(n<<1)<<endl;/// Multiply by 2;,here 101 ->1010;
-
-   */
-
-    ///Trick - 02
-    ///upper_case to lower_case
-    for(char c = 'A'; c<='E'; c++)///5th not set
-    {
-        //cout<<c<<endl;
-        //printBinary(int(c));
-    }
-    for(char c = 'a'; c<='e'; c++)///5th bit set
-    {
-        //cout<<c<<endl;
-        //printBinary(int(c));
-    }
-
-    char A = 'A';
-    char a =  A|(1<<5);///set 5th bit;
-    //cout<<a<<endl;
-    ///or
-    char a2 = char( A | (' '));
-    cout<<a2<<endl;
-
-
-    char d = 'd';
-    char D = (d&(~(1<<5)));///Unset 5th bit
-    //cout<<D<<endl;
-    ///or
-    char d2 = char(d & ('_'));
-    cout<<d2<<endl;
 
 }
