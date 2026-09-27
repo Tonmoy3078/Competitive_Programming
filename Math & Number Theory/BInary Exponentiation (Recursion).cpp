@@ -42,40 +42,36 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+int binExp(int a,int b)
+{
+    if(b==0)return 1;
+    ll res = binExp(a,b/2);
+
+    if(b&1)
+    {
+        return a*res*res;
+    }
+    else
+    {
+        return res*res;
+    }
+}
 int main()
 {
     optimize();
+    /// pow() function returns in double;
 
-    int a=4,b=6;
-
-    ///swap a and b;
-
-    a = a^b;
-    b = b^a;
-
-    cou<<a<<" "<<b<<endl;
-
-   /// questio:
-   /*
-   Given an array of n integer. All interger
-   are present in event count except one.Find that
-   one integer which has odd count in O(n) time
-   complexity ans O(1) space;
-   N<10^5
-   a[i]<10^5;
-   */
-
-
-   int n;
-   cin>>n;
-   int ans=0;
-   for(int i=0; i<n; i++)
-   {
-       int a;
-       cin>>a;
-       ans ^=a;
-   }
-
-   cout<<ans<<endl;
+    /// Time complexity in O(n);
+    /*
+    int a = 2,b=3;
+    int ans=1;
+    for(int i=0; i<b; i++)
+    {
+        ans *= a;
+    }
+    cout<<ans<<endl;
+    */
+    int a=2, b=13;
+    cout<<binExp(a,b)<<endl;
 
 }

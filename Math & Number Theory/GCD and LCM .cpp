@@ -41,41 +41,21 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-
+ int gcd(int a,int b)
+ {
+     if(b==0)return a;
+     return gcd(b,a%b);
+ }
 int main()
 {
     optimize();
+    int n,m;
+    cin>>n>>m;
 
-    int a=4,b=6;
+    int k = gcd(n,m);
+    cout<<k<<endl;
 
-    ///swap a and b;
-
-    a = a^b;
-    b = b^a;
-
-    cou<<a<<" "<<b<<endl;
-
-   /// questio:
-   /*
-   Given an array of n integer. All interger
-   are present in event count except one.Find that
-   one integer which has odd count in O(n) time
-   complexity ans O(1) space;
-   N<10^5
-   a[i]<10^5;
-   */
-
-
-   int n;
-   cin>>n;
-   int ans=0;
-   for(int i=0; i<n; i++)
-   {
-       int a;
-       cin>>a;
-       ans ^=a;
-   }
-
-   cout<<ans<<endl;
+    int lcm = (n*m)/k;
+    cout<<lcm<<endl;
 
 }

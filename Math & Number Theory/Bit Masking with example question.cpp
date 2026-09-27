@@ -51,6 +51,7 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 }
 int main()
 {
+    ///Maximum common days. (Intersection);
     optimize();
 
     int n;
