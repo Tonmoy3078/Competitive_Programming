@@ -1,4 +1,4 @@
-include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 
@@ -36,15 +36,68 @@ const ll infLL = 9000000000000000000;
 #define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 
 #define dbg(args...) do {cerr << #args << " : "; faltu(args); } while(0)
-void faltu () {            cerr << endl;}
-template < typename T, typename ... hello>void faltu( T arg, const hello &... rest) {cerr << arg << ' ';faltu(rest...);}
+void faltu ()
+{
+    cerr << endl;
+}
+template < typename T, typename ... hello>void faltu( T arg, const hello &... rest)
+{
+    cerr << arg << ' ';
+    faltu(rest...);
+}
 
-ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
-ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+ll gcd ( ll a, ll b )
+{
+    return __gcd ( a, b );
+}
+ll lcm ( ll a, ll b )
+{
+    return a * ( b / gcd ( a, b ) );
+}
+typedef long long ll;
+#define MOD 1000000007
+
+// Binary multiplication under modulo
+ll binary_mul(ll a, ll b)
+{
+    ll ans = 0;
+    while (b)
+
+    {
+        if (b & 1)
+        {
+            ans = (ans + a) % MOD;
+        }
+        a = (a + a) % MOD;
+        b >>= 1;
+    }
+    return ans;
+}
+
+// Binary exponentiation using binary_mul
+ll binary_exp(ll n, ll m)
+
+{
+    ll ans = 1;
+    while (m)
+    {
+        if (m & 1)
+        {
+            ans = binary_mul(ans, n);
+        }
+        n = binary_mul(n, n);
+        m >>= 1;
+    }
+    return ans;
+}
 
 int main()
 {
-    optimize();
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
-    return 0;
+    ll a,b;
+    cin>>a>>b;
+
+    cout<<binary_exp(a, b)<<endl;
 }
