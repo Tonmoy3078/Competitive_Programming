@@ -81,7 +81,7 @@ ll binary_exp(ll n, ll m)
     ll ans = 1;
     while (m)
     {
-        if (m & 1)
+        if(m&1)
         {
             ans = binary_mul(ans, n);
         }
