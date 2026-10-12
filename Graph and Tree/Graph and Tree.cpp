@@ -36,15 +36,45 @@ const ll infLL = 9000000000000000000;
 #define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 
 #define dbg(args...) do {cerr << #args << " : "; faltu(args); } while(0)
-void faltu () {            cerr << endl;}
-template < typename T, typename ... hello>void faltu( T arg, const hello &... rest) {cerr << arg << ' ';faltu(rest...);}
+void faltu ()
+{
+    cerr << endl;
+}
+template < typename T, typename ... hello>void faltu( T arg, const hello &... rest)
+{
+    cerr << arg << ' ';
+    faltu(rest...);
+}
 
-ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
-ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+ll gcd ( ll a, ll b )
+{
+    return __gcd ( a, b );
+}
+ll lcm ( ll a, ll b )
+{
+    return a * ( b / gcd ( a, b ) );
+}
 
+
+const int N = 1e3+10;
+int graph[N][N];
+
+vector<int>graph2[N];
 int main()
 {
     optimize();
 
-    return 0;
+    int n,m;
+    cin>>n>>m;
+
+    for(int i=0; i<m; i++)
+    {
+        int v1,v2;
+        cin>>v1>>v2;
+        graph[v1][v2] = 1;
+        graph[v2][v1] = 1;
+
+        graph2[v1].push_back(v2);
+        graph2[v2].push_back(v1);
+    }
 }
